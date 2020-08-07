@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form, render_field, render_form_row %}
+{% from 'bootstrap/table.html' import render_table %}
+{% from 'bootstrap/pagination.html' import render_pager, render_pagination %}
+
+
+
+{% block title %}CSDB Test{% endblock %}
+
+{% block content %}
+<h3>查询</h3>
+
+{# {{ render_form(form) }} #}
+{{ render_form(form, form_type='inline', button_style='primary') }}
+
+
+<h3>区服信息</h3>
+{% if messages %}
+{{ render_table(messages) }}
+{% else %}
+没得信息
+{% endif %}
+<br>
+{{ render_pagination(pagination) }}
+
+{% endblock %}
+
+

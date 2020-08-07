@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form, render_field, render_form_row %}
+{% from 'bootstrap/table.html' import render_table %}
+{% from 'bootstrap/pagination.html' import render_pager, render_pagination %}
+
+
+
+{% block title %}CSDB Test{% endblock %}
+
+{% block content %}
+<h3>配置管理</h3>
+{# {{ render_form(form) }} #}
+<form method="post">
+    <div class="row">
+        <div class="cal">
+             {{ render_field(form.description) }}
+        </div>
+        <div class="cal">
+            {{ render_field(form.url) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="cal">
+            {{ render_field(form.username) }}
+        </div>
+        <div class="cal">
+            {{ render_field(form.password) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="cal">
+            {{ render_field(form.etcd_root) }}
+        </div>
+        <div class="cal">
+            {{ render_field(form.gid) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="cal">
+            {{ render_field(form.submit) }}
+        </div>
+    </div>
+</form>
+<h3>大区Etcd配置信息</h3>
+{% if messages %}
+{{ render_table(messages) }}
+{% else %}
+没得信息
+{% endif %}
+<br>
+
+{% endblock %}
+
+

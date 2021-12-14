@@ -5,7 +5,7 @@ from flask import Flask
 from csdb.settings import config
 from csdb.views import index
 from csdb.extensions import db, bootstrap, csrf, login_manager
-from csdb.views import index_bp, login_bp, setting_bp
+from csdb.views import index_bp, login_bp, setting_bp, client_bp
 from csdb.commands.init_db import init_db
 
 basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
@@ -34,6 +34,7 @@ def register_blueprints(app):
     app.register_blueprint(index_bp)
     app.register_blueprint(login_bp)
     app.register_blueprint(setting_bp)
+    app.register_blueprint(client_bp)
 
 def register_commands(app):
     app.cli.add_command(init_db)

@@ -28,6 +28,7 @@ def setting():
 @setting_bp.route('/get_etcd_info', methods=['GET'])
 def get_etcd_info():
     args = request.args
+    config_list = []
     if args.get('all_sync'):
         config_list = SettingInfo.query.all()
     elif args.get('id'):

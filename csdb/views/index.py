@@ -11,6 +11,7 @@ def index():
     form = SearchForm()
     page = request.args.get('page', 1, type=int)
     if form.shard_id.data:
+        # print(EtcdData.__table__.columns.keys())
         pagination = EtcdData.query.filter_by(gid=form.gid.data, shard_id=form.shard_id.data).paginate(1, per_page=10)
     elif form.gid.data:
         pagination = EtcdData.query.filter_by(gid=form.gid.data).paginate(page, per_page=10)

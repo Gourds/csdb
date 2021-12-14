@@ -9,3 +9,4 @@ if os.path.exists(dotenv_path):
 
 from csdb import create_app
 app = create_app()
+
